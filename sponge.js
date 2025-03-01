@@ -2,6 +2,7 @@ const spRouter = {
     switchobj: null,
     pages: {},
     content: {},
+    actions: {},
     currentPage: null
 };
 
@@ -15,6 +16,10 @@ function spElement(HTMLElement) {
 
 function spDeclareViews(views) {
     spRouter.pages = views;
+}
+
+function spActions(actions) {
+    spRouter.actions = actions;
 }
 
 function spFetchAll() {
@@ -40,4 +45,12 @@ function spSwitch(reqpage) {
 
     spRouter.currentPage = reqpage;
     spRouter.switchobj.innerHTML = spRouter.content[reqpage];
+
+    if (reqpage in spRouter.actions) {
+        try {
+            spRouter.actions[reqpage]();
+        } catch (error) {
+            console.error("Action failed:", error);
+        }
+    }
 }
