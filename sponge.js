@@ -5,6 +5,10 @@ const spRouter = {
     currentPage: null
 };
 
+function spCurrentPage() {
+    return spRouter.currentPage;
+}
+
 function spElement(HTMLElement) {
     spRouter.switchobj = HTMLElement;
 }
