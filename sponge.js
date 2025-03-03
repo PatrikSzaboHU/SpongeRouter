@@ -33,7 +33,7 @@ function spFetchAll() {
     return Promise.all(fetchPromises);
 }
 
-function spSwitch(reqpage) {
+function spSwitch(reqpage, pushToHistory = true) {
     if (!(reqpage in spRouter.content)) {
         console.error(`[Sponge]: Page '${reqpage}' does not have loaded content. Interrupting switch.`);
         return;
@@ -53,4 +53,14 @@ function spSwitch(reqpage) {
             console.error("Action failed:", error);
         }
     }
+
+    if (pushToHistory) {
+        history.pushState({ page: reqpage }, "", `#${reqpage}`);
+    }
 }
+
+window.addEventListener("popstate", (event) => {
+    if (event.state && event.state.page) {
+        spSwitch(event.state.page, false);
+    }
+});
