@@ -1,6 +1,6 @@
 # Ignore local testing files
-/pages
-index.html
+/testpages
+test.html
 
 # Ignore macOS specific files
 .DS_Store
