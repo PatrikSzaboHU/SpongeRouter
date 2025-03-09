@@ -67,4 +67,6 @@ Switches to the specified page ID and updates the container element.
 - If an attempt is made to switch to a non-loaded page, an error is displayed in the console.
 
 ## License
+Copyright (c) 2025 Patrik Szabó.
+
 This project is open-source under the MIT License.
