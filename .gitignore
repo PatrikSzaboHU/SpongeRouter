@@ -1,3 +1,6 @@
 # Ignore local testing files
 /pages
 index.html
+
+# Ignore macOS specific files
+.DS_Store
