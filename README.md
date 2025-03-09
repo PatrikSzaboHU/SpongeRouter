@@ -9,7 +9,7 @@ Sponge Router is a lightweight client-side page switching system that preloads H
 - Simple APIs for declaring views and managing navigation.
 
 ## Installation
-Simply include the script in the header of your HTML file
+Download the minfined JavaScript file and include it in your website's header
 ```js
 <script src="/path/to/sponge.min.js"></script>
 ```
@@ -44,11 +44,17 @@ spFetchAll().then(() => {
 
 ## API Reference
 
+### `spCurrentPage()`
+Returns the current page's ID
+
 ### `spElement(HTMLElement)`
 Sets the main container element where page content will be swapped.
 
 ### `spDeclareViews(views)`
 Declares the available pages by mapping page IDs to their URLs.
+
+### `spActions(actions)`
+Maps functions with specific page IDs, triggering them when the corresponding page is activated.
 
 ### `spFetchAll()`
 Fetches and caches all declared pages. Returns a Promise that resolves when all pages are loaded.
